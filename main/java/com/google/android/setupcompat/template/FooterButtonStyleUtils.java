@@ -186,7 +186,11 @@ public class FooterButtonStyleUtils {
       int color = PartnerConfigHelper.get(context).getColor(context, buttonDisableTextColorConfig);
       updateButtonTextDisabledColor(button, color);
     } else {
-      updateButtonTextDisableDefaultColor(button, getButtonDefaultTextCorlor(button));
+      try {
+        updateButtonTextDisableDefaultColor(button, getButtonDefaultTextCorlor(button));
+      } catch (IllegalStateException e){
+        // nothing
+      }
     }
   }
 
